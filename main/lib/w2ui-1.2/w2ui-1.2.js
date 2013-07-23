@@ -1010,7 +1010,7 @@ $.w2event = {
 				return;
 			}
 			if (!w2utils.isAlphaNumeric(method.name)) {
-				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and underscore). ');
+				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and utils). ');
 				return;			
 			}
 			// remember items
@@ -3503,7 +3503,7 @@ $.w2event = {
 				return;			
 			}
 			if (!w2utils.isAlphaNumeric(method.name)) {
-				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and underscore). ');
+				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and utils). ');
 				return;			
 			}
 			var panels = method.panels;
@@ -4911,7 +4911,7 @@ $.w2event = {
 				return;			
 			}
 			if (!w2utils.isAlphaNumeric(method.name)) {
-				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and underscore). ');
+				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and utils). ');
 				return;			
 			}
 			// extend tabs
@@ -5310,7 +5310,7 @@ $.w2event = {
 				return;			
 			}
 			if (!w2utils.isAlphaNumeric(method.name)) {
-				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and underscore). ');
+				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and utils). ');
 				return;			
 			}
 			var items = method.items;
@@ -5841,7 +5841,7 @@ $.w2event = {
 				return;			
 			}
 			if (!w2utils.isAlphaNumeric(method.name)) {
-				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and underscore). ');
+				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and utils). ');
 				return;			
 			}
 			// extend items
@@ -7589,7 +7589,7 @@ $.w2event = {
 				return;			
 			}
 			if (!w2utils.isAlphaNumeric(method.name)) {
-				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and underscore). ');
+				console.log('ERROR: The parameter "name" has to be alpha-numeric (a-z, 0-9, dash and utils). ');
 				return;			
 			}
 			// remember items
