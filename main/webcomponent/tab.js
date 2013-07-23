@@ -12,7 +12,7 @@ define(['bootstrap','tabPanel'], function () {
                     $tabContainer = $origComponent.parent(),
                     $tabHeader = $tabContainer.children("ul:first"),
                     $container = $tabContainer.children("div.tab-content"),
-                    activeClass = $tabHeader.children.length==0?" class='active'":"",
+                    activeClass = $tabHeader.children().length==0?" class='active'":"",
                     activePaneClass = activeClass?" active":"",
                     tabContent = $origComponent.html() ;
 

@@ -44,6 +44,9 @@
         proto.gkm = function () {
             return CustomTag.gkm[this.id];
         };
+        proto.origElement = function () {
+            return CustomTag.origElement[this.id];
+        };
         proto.infoArray = function (info) {
             var replaceHTML = '';
             var _self = this;
@@ -75,7 +78,6 @@
             replaceHTML = $.gk['toHTML'](replaceHTML);
             return replaceHTML;
         };
-        proto._componentSettings = {} ;
         proto.componentSettings=function(settings) {
             if (settings) {
                 this._componentSettings = settings ;
@@ -152,7 +154,8 @@
     var CustomTag = (function () {
         var CustomTag = {
             CLASS: 'use',
-            gkm: {}
+            gkm: {},
+            origElement:{}
         };
         CustomTag.replaceWith = function (processTagElement) {
             if (typeof processTagElement === 'undefined') {
@@ -173,19 +176,20 @@
             TagLibrary.eventStore['script'].push(script);
             repHTML = TagUtils.innerHTML(processTagElement);
             CustomTag.gkm[id] = repHTML;
+            CustomTag.origElement[id] = processTagElement;
+
             newHTML = newHTML.replace(TagLibrary.content, repHTML);
 
             var component = $.gk.components[processTagElement.nodeName.toUpperCase()];
 
             newHTML = component.prototype['beforeParse'](newHTML);
-            var onEvent = [], attribs={};
+            var onEvent = [] ;
             $.each(processTagElement.attributes, function (idx, att) {
                 if (att.nodeName.indexOf('on') == 0) {
                     onEvent.push([att.nodeName, att.nodeValue]);
                 }
                 var regex = new RegExp('{{' + att.nodeName + '}}', "gi");
                 newHTML = newHTML.replace(regex, att.nodeValue);
-                attribs[att.nodeName]=att.nodeValue ;
             });
             component.prototype['componentSettings']($(processTagElement)) ;
 
@@ -219,7 +223,7 @@
         TagLibrary.isComponent = function isComponent(tagName) {
             return TagLibrary.customTags[tagName.toUpperCase()];
         };
-        TagLibrary.process = function process(ele) {
+        TagLibrary.process = function (ele) {
             var chk = $.type(ele);
             if (chk === "null" || chk === "undefined") {
                 return;

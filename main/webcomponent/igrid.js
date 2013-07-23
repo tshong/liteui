@@ -150,7 +150,7 @@ define(['gk', 'jqgrid_i18n_tw', 'blockUI'], function (gk) {
         script: function () {
             this.$jqgrid = null;
             this.init = function () {
-                var $origComponent = this.componentSettings();
+                var $origComponent = $(this.origElement()) ;
                 var gridcfg = buildGridCfg($origComponent, this.id+'_pager'),
                     $subgrid = $origComponent.children('subgrid:first') ;
                 if ($subgrid.length>0) {
@@ -171,6 +171,7 @@ define(['gk', 'jqgrid_i18n_tw', 'blockUI'], function (gk) {
                     }
                 }
                 this.$jqgrid = $('#' + this.id+'_grid');
+                console.log('jqgrid:'+this.id) ;
                 this.$jqgrid.jqGrid(gridcfg);
             }
         }

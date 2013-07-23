@@ -1,21 +1,20 @@
-(function () {
-    var css = [
-        'lib/bootstrap/css/bootstrap.css'
-    ];
-    $.each(css, function () {
-        gku.loadcss(this);
-    })
-})();
+gku.loadbootstrap() ;
 
 require.config({
     baseUrl: 'webcomponent',
     paths: {
-        'bootstrap': '../lib/bootstrap/js/bootstrap'
+        'jqgrid_core': '../lib/jqgrid/jqgrid-4.5.2/js/jquery.jqGrid.min',
+        'jqgrid_i18n_tw': '../lib/jqgrid/jqgrid-4.5.2/js/i18n/grid.locale-tw',
+        'blockUI': '../lib/blockUI/jquery.blockUI.min'
+    },
+    shim: {
+        'jqgrid_i18n_tw': {
+            deps: ['jqgrid_core']
+        }
     }
 });
 
-
-define(['bootstrap'], function () {
+define(['bootstrap','tab'], function () {
     return {
         name: 'tabPanel',
         template: '<div class="tabbable" style="margin: .5em"><ul class="nav nav-tabs"></ul><div class="tab-content"></div><content></content></div>',
